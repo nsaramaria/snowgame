@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="surface.cpp">
+      <Filter>template code</Filter>
+    </ClCompile>
+    <ClCompile Include="template.cpp">
+      <Filter>template code</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="game.h" />
+    <ClInclude Include="surface.h">
+      <Filter>template code</Filter>
+    </ClInclude>
+    <ClInclude Include="template.h">
+      <Filter>template code</Filter>
+    </ClInclude>
+    <ClInclude Include="backround.h" />
+    <ClInclude Include="game_character.h" />
+    <ClInclude Include="portal.h" />
+    <ClInclude Include="gameFunctions.h" />
+    <ClInclude Include="dragon.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="template code">
+      <UniqueIdentifier>{bf32dd6e-4be7-4889-8ac6-49e7ee163c40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game assets">
+      <UniqueIdentifier>{8e9a9953-fbc4-4bbf-ba55-19d14f79be0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="character animations">
+      <UniqueIdentifier>{e8340345-d7d4-4d0d-ac77-6bec81817ab8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="_readme.txt">
+      <Filter>template code</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="snow game assets\png\Tiles\1.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="snow game assets\png\Tiles\2.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="snow game assets\png\Tiles\3.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="snow game assets\png\Tiles\14.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="snow game assets\png\Tiles\15.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="snow game assets\png\Tiles\16.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="snow game assets\keyframes\snowball_05.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="snow game assets\4 direction\Citizen\PNG\Back\PNG Sequences\Walk\0_Citizen_Walk_000.png">
+      <Filter>character animations</Filter>
+    </Image>
+    <Image Include="snow game assets\4 direction\Citizen\PNG\Side\PNG Sequences\Walk\0_Citizen_Walk_000S.png">
+      <Filter>character animations</Filter>
+    </Image>
+    <Image Include="0_Citizen_Walk_000D.png">
+      <Filter>character animations</Filter>
+    </Image>
+    <Image Include="snow game assets\png\Object\Sign_1.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="dragon1.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="dragon2.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="dragon3.png">
+      <Filter>game assets</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
