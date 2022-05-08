@@ -228,11 +228,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="backround.h" />
+    <ClInclude Include="bomb.h" />
     <ClInclude Include="dragon.h" />
     <ClInclude Include="game.h" />
-    <ClInclude Include="gameFunctions.h" />
     <ClInclude Include="game_character.h" />
-    <ClInclude Include="portal.h" />
+    <ClInclude Include="lives.h" />
+    <ClInclude Include="snowball.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />
   </ItemGroup>
@@ -241,9 +242,13 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="0_Citizen_Walk_000D.png" />
+    <Image Include="bomb1.png" />
     <Image Include="dragon1.png" />
     <Image Include="dragon2.png" />
     <Image Include="dragon3.png" />
+    <Image Include="dragonRev1.png" />
+    <Image Include="dragonRev2.png" />
+    <Image Include="dragonRev3.png" />
     <Image Include="snow game assets\4 direction\Citizen\PNG\Back\PNG Sequences\Walk\0_Citizen_Walk_000.png" />
     <Image Include="snow game assets\4 direction\Citizen\PNG\Side\PNG Sequences\Walk\0_Citizen_Walk_000S.png" />
     <Image Include="snow game assets\keyframes\snowball_05.png" />
@@ -254,6 +259,7 @@
     <Image Include="snow game assets\png\Tiles\16.png" />
     <Image Include="snow game assets\png\Tiles\2.png" />
     <Image Include="snow game assets\png\Tiles\3.png" />
+    <Image Include="snowball.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
