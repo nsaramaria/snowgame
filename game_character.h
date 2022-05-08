@@ -3,6 +3,7 @@
 #include "surface.h"
 #include "game.h"
 #include "template.h"
+#include "snowball.h"
 #include <SDL.h>
 #include <cstdio> //printf
 #include <string>
@@ -16,18 +17,20 @@ namespace Tmpl8 {
 	static Sprite CharacterL(new Surface("0_Citizen_Walk_000S.png"), 1);//character from left side
 	static Sprite CharacterR(new Surface("0_Citizen_Walk_000D.png"), 1);//character from right side
 
-	static Sprite Dragon1(new Surface("dragon1.png"), 1);
-	static Sprite Dragon2(new Surface("dragon2.png"), 1);
-	static Sprite Dragon3(new Surface("dragon3.png"), 1);
 
     class Sprite;
 
-	int x = 350;
-	int y = 368;
-
+	int XCharacter = 350;
+	int YCharacter = 368;
+	int initYBallPosition = YCharacter - 60;
+	int currentYBallPosition = initYBallPosition;
+	bool ballIsThrown = false ; 
+	const int ballsMaxNumber = 2;
+	int countBalls=0;
 	class Character
-	{
+	{  
 	public:
+		Snowball snowball;
 		
 		void Movement(Surface*screen)
 		{
@@ -35,8 +38,8 @@ namespace Tmpl8 {
 			if (GetAsyncKeyState(VK_LEFT))
 			{
 				//decrement x
-				x -= 2;
-				CharacterL.DrawScaled(x, y, 87, 87, screen);
+				XCharacter -= 2;
+				CharacterL.DrawScaled(XCharacter, YCharacter, 87, 87, screen);
 			
 			}
 			else
@@ -44,14 +47,40 @@ namespace Tmpl8 {
 				if (GetAsyncKeyState(VK_RIGHT))
 				{
 					//increment x
-					x += 2;
-					CharacterR.DrawScaled(x, y, 87, 87, screen);
+					XCharacter += 2;
+					CharacterR.DrawScaled(XCharacter, YCharacter, 87, 87, screen);
 				}
 				else
 				{
-					CharacterB.DrawScaled(x, y, 87, 87, screen);
+					CharacterB.DrawScaled(XCharacter, YCharacter, 87, 87, screen);
 				}
 			}
+			if(GetAsyncKeyState(VK_SPACE))
+			{ 
+				ballIsThrown = true;;
+			}
+			
+
+			if (ballIsThrown) {
+				
+				snowball.throw_ball(XCharacter, currentYBallPosition, screen);
+				//currentYBallPosition--;
+			}
+			 resetThrow();
+		}
+		void resetThrow() {
+			if (snowball.getYPosition()==21) {
+				ballIsThrown = false;
+			}
+			
+		}
+		int getXCharactPosition()
+		{
+			return XCharacter;
+		}
+		int getYCharactPosition()
+		{
+			return YCharacter;
 		}
 	};
 };

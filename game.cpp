@@ -2,20 +2,16 @@
 #include "surface.h"
 #include "template.h"
 #include "backround.h"
-//#include "dragon.h"
+#include "dragon.h"
+//#include "bomb.h"
 #include "game_character.h"
+#include "Lives.h"
 #include <cstdio> //printf
 #include <SDL.h>
 #include <string>
 #include <cstdlib>
 #include <ctime>
-using namespace std;
-
-//health bar
-//score
-//lives
-//dupa ce colectezi 5 chei se dechide usa si te teleportezi sus sa l omori pe ala
-
+//using namespace std;
 
 namespace Tmpl8
 {
@@ -24,7 +20,8 @@ namespace Tmpl8
 
 	void Game::Init()
 	{
-		
+		Snow snow;
+		snow.initialize_flakes();
 	}
 
 	// Close down application
@@ -32,12 +29,9 @@ namespace Tmpl8
 	void Game::Shutdown()
 	{
 	}
-	static Sprite rotatingGun(new Surface("assets/aagun.tga"), 36);
-	//static Sprite Dragon1(new Surface("dragon1.png"), 1);
-	//static Sprite Dragon2(new Surface("dragon2.png"), 1);
-	static int frame = 0;
-	//int daca = 1;
-	//int poz = 150;
+	
+	//int var = 1;
+
 	// Main application tick function
 
 	void Game::Tick(float deltaTime)
@@ -46,21 +40,20 @@ namespace Tmpl8
 		Snow snow;
 		Display display;
 		Character character;
-		snow.initialize_flakes();
+		Dragon dragon;
+		Lives lives;
+		HealthBar healthbar;
+		//snow.initialize_flakes();
 		snow.draw_flakes(screen, deltaTime);
 		snow.movement_flakes();
 		display.display_ground(screen);
 		display.display_woodsign(screen);
 		character.Movement(screen);
+		dragon.animate_dragon(screen, deltaTime);
+		//bomb.throw_bomb(Xdragon, Ydragon+100, screen);
+		//lives.HitCharacter();
+		healthbar.healthBar_update(screen, 1);
 		
-		//if (daca == 1)
-		//{
-			//Dragon1.DrawScaled(poz, 110, 87, 87, screen);
-		//}
-
-		rotatingGun.SetFrame(frame);
-		rotatingGun.Draw(screen, 100, 100);
-		if (++frame == 36) frame = 0;
 		
 	}
 
@@ -68,7 +61,7 @@ namespace Tmpl8
 		//theSprite.SetFrame(6);
 		//theSprite.Draw(screen, 30, 30);
 		// print something in the graphics window
-		//creen->Print("hello world", 2, 2, 0xffffff);
+		//screen->Print("hello world", 2, 2, 0xffffff);
 		// print something to the text window
 		//printf("this goes to the console window.\n");
 		

@@ -19,9 +19,10 @@
     </ClInclude>
     <ClInclude Include="backround.h" />
     <ClInclude Include="game_character.h" />
-    <ClInclude Include="portal.h" />
-    <ClInclude Include="gameFunctions.h" />
     <ClInclude Include="dragon.h" />
+    <ClInclude Include="bomb.h" />
+    <ClInclude Include="snowball.h" />
+    <ClInclude Include="lives.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">
@@ -80,6 +81,21 @@
       <Filter>game assets</Filter>
     </Image>
     <Image Include="dragon3.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="dragonRev1.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="dragonRev2.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="dragonRev3.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="bomb1.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="snowball.png">
       <Filter>game assets</Filter>
     </Image>
   </ItemGroup>

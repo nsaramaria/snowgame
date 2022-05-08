@@ -15,7 +15,7 @@ float flakesX[700];
 float flakesY[700];
 int flakes_layer[700];
 int fcolor;
-float speed;
+float speed[700];
 namespace Tmpl8 {
 	class Surface;
 	static Sprite SnowBlockInit(new Surface("1.png"), 1);
@@ -39,15 +39,17 @@ namespace Tmpl8 {
 				flakesY[i] = Rand(ScreenHeight);
 				flakes_layer[i] = Rand(layer);
 			}
+			//int a = 1;
 		}
 		void draw_flakes(Surface* screen, float deltaTime)
 		{
 			//making 3 different snowfleaks types with different form , color and speed
+			//float test = flakesY[1];
 			for (int i = 0; i < Total_flakes; i++)
 			{
 				if (flakes_layer[i] == 0)
 				{
-					speed = 0.1f * deltaTime;
+					speed[i] = 0.1f * deltaTime;
 					fcolor = 0x4cbfe0;
 					//circular snowfleaks
 					screen->Plot(flakesX[i], flakesY[i], fcolor);
@@ -57,7 +59,7 @@ namespace Tmpl8 {
 				}
 				if (flakes_layer[i] == 1)
 				{
-					speed = 0.2f * deltaTime;
+					speed[i] = 0.2f * deltaTime;
 					fcolor = 0xcae9ff;
 					//star snowfleaks
 					screen->Plot(flakesX[i], flakesY[i], fcolor);
@@ -76,7 +78,7 @@ namespace Tmpl8 {
 				}
 				if (flakes_layer[i] == 2)
 				{
-					speed = 0.3f * deltaTime;
+					speed[i] = 0.3f * deltaTime;
 					fcolor = 0x8fcbff;
 					//circular snowfleaks
 					screen->Plot(flakesX[i], flakesY[i], fcolor);
@@ -91,7 +93,7 @@ namespace Tmpl8 {
 		{
 			for ( int i = 0; i < Total_flakes; i++)
 			{
-				flakesY[i] += speed;
+				flakesY[i] += speed[i];
 
 				if (flakesY[i] > ScreenHeight)
 				{
