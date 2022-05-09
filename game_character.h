@@ -57,22 +57,22 @@ namespace Tmpl8 {
 			}
 			if(GetAsyncKeyState(VK_SPACE))
 			{ 
-				ballIsThrown = true;;
+				ballIsThrown = true;
 			}
 			
 
-			if (ballIsThrown) {
-				
+			if (ballIsThrown) 
+			{
 				snowball.throw_ball(XCharacter, currentYBallPosition, screen);
-				//currentYBallPosition--;
 			}
 			 resetThrow();
+
 		}
-		void resetThrow() {
+		void resetThrow() 
+		{
 			if (snowball.getYPosition()==21) {
 				ballIsThrown = false;
 			}
-			
 		}
 		int getXCharactPosition()
 		{
@@ -82,5 +82,6 @@ namespace Tmpl8 {
 		{
 			return YCharacter;
 		}
-	};
+
+	};//class Character
 };

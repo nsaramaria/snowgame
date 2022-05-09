@@ -241,8 +241,24 @@
     <Text Include="_readme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="0_Citizen_Communication_000.png" />
     <Image Include="0_Citizen_Walk_000D.png" />
     <Image Include="bomb1.png" />
+    <Image Include="bombRev1.png" />
+    <Image Include="deadDragon1.png" />
+    <Image Include="deadDragon2.png" />
+    <Image Include="deadDragon3.png" />
+    <Image Include="deadDragon4.png" />
+    <Image Include="deadDragon6.png" />
+    <Image Include="deadDragon7.png" />
+    <Image Include="deadDragon8.png" />
+    <Image Include="deadDragonRev1.png" />
+    <Image Include="deadDragonRev2.png" />
+    <Image Include="deadDragonRev3.png" />
+    <Image Include="deadDragonRev4.png" />
+    <Image Include="deadDragonRev6.png" />
+    <Image Include="deadDragonRev7.png" />
+    <Image Include="deadDragonRev8.png" />
     <Image Include="dragon1.png" />
     <Image Include="dragon2.png" />
     <Image Include="dragon3.png" />

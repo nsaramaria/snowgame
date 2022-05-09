@@ -16,20 +16,30 @@ namespace Tmpl8 {
     Sprite ball(new Surface("snowball.png"), 1);
 	int YBall = 300;
 	int XBall = -1;
+	int SnowballCount = -1;
+
 	class Snowball {
 		
 	public:
 		void throw_ball( int XCharacter,int YCharacter, Surface* screen)
 		{
 			if (XBall<0) {
-				XBall = XCharacter;
+				int save = XCharacter;
+				XBall = save;
 			}
-			if (YBall>20) {
+			if (YBall>20) 
+			{
 				ball.DrawScaled(XBall, YBall, 50, 50, screen);
 				YBall--;
-			} else {
+				if (YBall == 200)
+				{
+					SnowballCount++;
+				}
+			}
+			else
+			{
 				YBall = 300;
-				XBall = -1;
+ 				XBall = -1;
 			}
 		}
 
@@ -39,6 +49,10 @@ namespace Tmpl8 {
 		}
 		int getYPosition() {
 			return YBall;
+		}
+		int getSnowballCount()
+		{
+			return SnowballCount;
 		}
 	};
 }

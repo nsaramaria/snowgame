@@ -98,5 +98,53 @@
     <Image Include="snowball.png">
       <Filter>game assets</Filter>
     </Image>
+    <Image Include="0_Citizen_Communication_000.png">
+      <Filter>character animations</Filter>
+    </Image>
+    <Image Include="deadDragon1.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="deadDragon2.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="deadDragon3.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="deadDragon4.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="deadDragon6.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="deadDragon7.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="deadDragon8.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="bombRev1.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="deadDragonRev1.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="deadDragonRev2.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="deadDragonRev3.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="deadDragonRev4.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="deadDragonRev6.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="deadDragonRev7.png">
+      <Filter>game assets</Filter>
+    </Image>
+    <Image Include="deadDragonRev8.png">
+      <Filter>game assets</Filter>
+    </Image>
   </ItemGroup>
 </Project>
