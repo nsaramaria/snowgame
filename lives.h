@@ -2,10 +2,8 @@
 #include "game.h"
 #include "surface.h"
 #include "template.h"
-#include "backround.h"
-//#include "dragon.h"
-#include "bomb.h"
-#include "game_character.h"
+//#include "game_character.h"
+#include "dragon.h"
 #include <cstdio> //printf
 #include <SDL.h>
 #include <string>
@@ -18,7 +16,7 @@ namespace Tmpl8 {
 	bool hasLivesUpdated = false;
 	int bombIndex = -1;
 	int snowballIndex = -1;
-   // bool characterWasHit = false;
+    static bool characterWasHit = false;
 
 	class Lives
 	{
@@ -57,6 +55,7 @@ namespace Tmpl8 {
 				&& dragonBomb.getXBombPosition() > ch.getXCharactPosition() - 60+10
 				&& dragonBomb.getXBombPosition() < ch.getXCharactPosition() + 87-10)
 			{
+				characterWasHit = true;
 				return true;
 			}
 			else {
@@ -64,6 +63,7 @@ namespace Tmpl8 {
 			}
 			
 		}
+
 		//create functions for character lives
 		void HitDragon()
 		{
