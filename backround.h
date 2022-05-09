@@ -28,6 +28,9 @@ namespace Tmpl8 {
 
 	static Sprite WoodSign(new Surface("Sign_1.png"), 1);
 
+	static Sprite ChBar(new Surface("0_Citizen_Communication_000.png"), 1);
+	static Sprite DrBar(new Surface("dragon2.png"), 1);
+
 	class Snow
 	{
 	public:
@@ -122,16 +125,29 @@ namespace Tmpl8 {
 			SnowBlockFin.DrawScaled(727, 442, 70, 70, screen);
 			
 			//ground blocks placed on the top of the screen
-			SnowBlockUpInit.DrawScaled(70, 110, 50, 50, screen);
-			SnowBlockUpMid.DrawScaled(120, 110, 50, 50, screen);
-			SnowBlockUpFin.DrawScaled(170, 110, 50, 50, screen);
+			SnowBlockUpInit.DrawScaled(80, 130, 40, 40, screen);
+			SnowBlockUpMid.DrawScaled(120, 130, 40, 40, screen);
+			SnowBlockUpFin.DrawScaled(160, 130, 40, 40, screen);
 
+			SnowBlockUpInit.DrawScaled(670, 300, 40, 40, screen);
+			SnowBlockUpMid.DrawScaled(710, 300, 40, 40, screen);
+			SnowBlockUpFin.DrawScaled(750, 300, 40, 40, screen);
 		}
 
 		void display_woodsign(Surface* screen)
 		{
 			WoodSign.DrawScaled(0, 358, 90, 90, screen);
 			screen->Print("Instructions", 6, 390, 0x492d00);
+		}
+
+		void display_ch_bar(Surface* screen)
+		{
+			ChBar.DrawScaled(580, 1, 40, 40, screen);
+		}
+
+		void display_dr_bar(Surface* screen)
+		{
+			DrBar.DrawScaled(-5, -2, 57, 57, screen);
 		}
 	};
 };//namespace Tmpl8

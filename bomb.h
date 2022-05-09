@@ -12,10 +12,7 @@
 //#include <ctime>
 namespace Tmpl8 {
 	class Surface;
-	//Lives lives;
 	static Sprite Bomb1(new Surface("bomb1.png"), 1); 
-	//int bombXPosition;
-	//int bombYPosition;
 	class Bomb {
 	public:
 		
@@ -23,12 +20,8 @@ namespace Tmpl8 {
 		{
 			Bomb1.DrawScaled(Xdragon, Ydragon, 60, 60, screen);
 			Ydragon++;
-			//bombXPosition = Xdragon;
-			//bombYPosition = Ydragon;
-		}
 
-		
-		//lives.HitCharacter(Xdragon, currentYBombPosition);
+		}
 	};
 
 };
