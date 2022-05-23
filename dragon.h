@@ -50,7 +50,7 @@ namespace Tmpl8{
 	int var = 1;
 	int var2 = 1;
 	//float previewDeltaTime = 0;
-	int flyingSpeed = 24;
+	int flyingSpeed = 17;
 	int fallindspeed = 20;
 	int Xdragon = 350;
 	int Ydragon = 40;

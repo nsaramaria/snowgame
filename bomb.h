@@ -20,7 +20,7 @@ namespace Tmpl8 {
 	static Sprite BombA3(new Surface("deadDragon8.png"), 1);
 
 	int var3 = 1;
-	int ExplodeSpeed = 30;
+	int ExplodeSpeed = 10;
 	bool finishFinalBombAnimation = false;
 	 
 	class Bomb {
@@ -35,7 +35,8 @@ namespace Tmpl8 {
 
 		void explode_bomb(int Xdragon, int Ydragon, Surface* screen)
 		{
-			if (var3 < ExplodeSpeed)
+			
+		    if (var3 < ExplodeSpeed)
 			{
 				BombA1.DrawScaled(Xdragon, Ydragon, 60, 60, screen);
 				var3++;

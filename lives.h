@@ -16,52 +16,46 @@ namespace Tmpl8 {
 	bool hasLivesUpdated = false;
 	int bombIndex = -1;
 	int snowballIndex = -1;
-    static bool characterWasHit = false;
-
+	
 	class Lives
 	{
 	public:
-		//create functions for character lives
+		Snowball snowball;
+		Dragon dragon;
 		Character ch;
 		Dragon dragonBomb;
-		Dragon dragon;
-		Snowball snowball;
-
-		void HitCharacter()
+		
+		//verify if the Character was hit by the bomb and update his lives if so
+		void HitCharacter()  
 		{
 			if (checkHitCharacter())
 			{ 
-				//characterWasHit = true;
 				updateCLives();
 			}
-			
 		}
-
+		//creat a function that decreases life only by one per hit
 		void updateCLives() {
-			if (dragonBomb.getBombCount()> bombIndex) {
-				ClivesCount--;
-				bombIndex = dragonBomb.getBombCount();
-				//characterWasHit = false;
-			}
+			if (dragonBomb.getBombCount()> bombIndex) 
+			{
+				ClivesCount--;//Character lives 
+				//bombIndex variable restrict lives from decreasing more than once per hit
+				bombIndex = dragonBomb.getBombCount(); 
+			}                                         
 		}
-
 		int CLivesNr()
 		{
 			return ClivesCount;
 		}
-
-		bool checkHitCharacter() {
+		bool checkHitCharacter() { //check if the bomb hit the Character
 			if (dragonBomb.getYBombPosition() > ch.getYCharactPosition() +10
-				&& dragonBomb.getXBombPosition() > ch.getXCharactPosition() - 60+10
-				&& dragonBomb.getXBombPosition() < ch.getXCharactPosition() + 87-10)
+				&& dragonBomb.getXBombPosition() > ch.getXCharactPosition() - 50
+				&& dragonBomb.getXBombPosition() < ch.getXCharactPosition() + 77)
 			{
-				characterWasHit = true;
 				return true;
 			}
 			else {
 				return false;
 			}
-			
 		}
 
 		//create functions for character lives
@@ -91,10 +85,7 @@ namespace Tmpl8 {
 				&& (snowball.getXPosition() >= dragon.getXdragonPosition() - 50 + 30 )
 				&& (snowball.getXPosition() <= dragon.getXdragonPosition() + 87 - 35))
 			{
-				int x = snowball.getXPosition();
-				int y = snowball.getYPosition();
-				int xd = dragon.getXdragonPosition();
-				int yd = dragon.getYdragonPosition();
+
 				return true;
 			}
 			else {

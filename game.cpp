@@ -96,6 +96,7 @@ namespace Tmpl8
 					DlivesCount = 6;
 					alive = true;
 					Ydragon = 40;
+					leftToRight = true;
 				}
 			}
 			else
@@ -111,6 +112,7 @@ namespace Tmpl8
 					DlivesCount = 6;
 					alive = true;
 					Ydragon = 40;
+					leftToRight = true;
 				}
 			}
 
