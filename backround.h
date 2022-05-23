@@ -16,6 +16,9 @@ float flakesY[700];
 int flakes_layer[700];
 int fcolor;
 float speed[700];
+float FScreenWidth = 800.0f;
+float FScreenHeight = 512.0f;
+
 namespace Tmpl8 {
 	class Surface;
 	static Sprite SnowBlockInit(new Surface("1.png"), 1);
@@ -38,9 +41,9 @@ namespace Tmpl8 {
 		{
 			for (int i = 0; i < Total_flakes; i++)
 			{
-				flakesX[i] = Rand(ScreenWidth);
-				flakesY[i] = Rand(ScreenHeight);
-				flakes_layer[i] = Rand(layer);
+				flakesX[i] = Rand(FScreenWidth);
+				flakesY[i] = Rand(FScreenHeight);
+				flakes_layer[i] = int(Rand(layer));
 			}
 			//int a = 1;
 		}
@@ -55,39 +58,39 @@ namespace Tmpl8 {
 					speed[i] = 0.1f * deltaTime;
 					fcolor = 0x4cbfe0;
 					//circular snowfleaks
-					screen->Plot(flakesX[i], flakesY[i], fcolor);
-					screen->Plot(flakesX[i] + 1, flakesY[i], fcolor);
-					screen->Plot(flakesX[i] + 1, flakesY[i] + 1, fcolor);
-					screen->Plot(flakesX[i], flakesY[i] + 1, fcolor);
+					screen->Plot(int(flakesX[i]), int(flakesY[i]), fcolor);
+					screen->Plot(int(flakesX[i]) + 1, int(flakesY[i]), fcolor);
+					screen->Plot(int(flakesX[i]) + 1, int(flakesY[i]) + 1, fcolor);
+					screen->Plot(int(flakesX[i]), int(flakesY[i]) + 1, fcolor);
 				}
 				if (flakes_layer[i] == 1)
 				{
 					speed[i] = 0.2f * deltaTime;
 					fcolor = 0xcae9ff;
 					//star snowfleaks
-					screen->Plot(flakesX[i], flakesY[i], fcolor);
-					screen->Plot(flakesX[i] + 1, flakesY[i], fcolor);
-					screen->Plot(flakesX[i] + 2, flakesY[i], fcolor);
-					screen->Plot(flakesX[i] + 3, flakesY[i], fcolor);
-					screen->Plot(flakesX[i], flakesY[i] + 1, fcolor);
-					screen->Plot(flakesX[i], flakesY[i] + 2, fcolor);
-					screen->Plot(flakesX[i], flakesY[i] + 3, fcolor);
-					screen->Plot(flakesX[i] - 1, flakesY[i], fcolor);
-					screen->Plot(flakesX[i] - 2, flakesY[i], fcolor);
-					screen->Plot(flakesX[i] - 3, flakesY[i], fcolor);
-					screen->Plot(flakesX[i], flakesY[i] - 1, fcolor);
-					screen->Plot(flakesX[i], flakesY[i] - 2, fcolor);
-					screen->Plot(flakesX[i], flakesY[i] - 3, fcolor);
+					screen->Plot(int(flakesX[i]), int(flakesY[i]), fcolor);
+					screen->Plot(int(flakesX[i]) + 1, int(flakesY[i]), fcolor);
+					screen->Plot(int(flakesX[i]) + 2, int(flakesY[i]), fcolor);
+					screen->Plot(int(flakesX[i]) + 3, int(flakesY[i]), fcolor);
+					screen->Plot(int(flakesX[i]), int(flakesY[i]) + 1, fcolor);
+					screen->Plot(int(flakesX[i]), int(flakesY[i]) + 2, fcolor);
+					screen->Plot(int(flakesX[i]), int(flakesY[i]) + 3, fcolor);
+					screen->Plot(int(flakesX[i]) - 1, int(flakesY[i]), fcolor);
+					screen->Plot(int(flakesX[i]) - 2, int(flakesY[i]), fcolor);
+					screen->Plot(int(flakesX[i]) - 3, int(flakesY[i]), fcolor);
+					screen->Plot(int(flakesX[i]), int(flakesY[i]) - 1, fcolor);
+					screen->Plot(int(flakesX[i]), int(flakesY[i]) - 2, fcolor);
+					screen->Plot(int(flakesX[i]), int(flakesY[i]) - 3, fcolor);
 				}
 				if (flakes_layer[i] == 2)
 				{
 					speed[i] = 0.3f * deltaTime;
 					fcolor = 0x8fcbff;
 					//circular snowfleaks
-					screen->Plot(flakesX[i], flakesY[i], fcolor);
-					screen->Plot(flakesX[i] + 1, flakesY[i], fcolor);
-					screen->Plot(flakesX[i] + 1, flakesY[i] + 1, fcolor);
-					screen->Plot(flakesX[i], flakesY[i] + 1, fcolor);
+					screen->Plot(int(flakesX[i]), int(flakesY[i]), fcolor);
+					screen->Plot(int(flakesX[i]) + 1, int(flakesY[i]), fcolor);
+					screen->Plot(int(flakesX[i]) + 1, int(flakesY[i]) + 1, fcolor);
+					screen->Plot(int(flakesX[i]), int(flakesY[i]) + 1, fcolor);
 				}
 			}
 
@@ -98,11 +101,11 @@ namespace Tmpl8 {
 			{
 				flakesY[i] += speed[i];
 
-				if (flakesY[i] > ScreenHeight)
+				if (flakesY[i] > FScreenHeight)
 				{
-					flakesX[i] = Rand(ScreenWidth);
+					flakesX[i] = Rand(FScreenWidth);
 					flakesY[i] = 0.0f;
-					flakes_layer[i] = Rand(layer);
+					flakes_layer[i] = int(Rand(layer));
 				}
 			}
 		}
@@ -136,8 +139,12 @@ namespace Tmpl8 {
 
 		void display_woodsign(Surface* screen)
 		{
-			WoodSign.DrawScaled(0, 358, 90, 90, screen);
-			screen->Print("Instructions", 6, 390, 0x492d00);
+			WoodSign.DrawScaled(0, 348, 100, 100, screen);
+			screen->Print("Kill the dragon", 6, 370, 0x492d00);
+			screen->Print("by hitting it", 6, 380, 0x492d00);
+			screen->Print("six times and", 6, 390, 0x492d00);
+			screen->Print("watch out for", 6, 400, 0x492d00);
+			screen->Print("bombs", 6, 410, 0x492d00);
 		}
 
 		void display_ch_bar(Surface* screen)

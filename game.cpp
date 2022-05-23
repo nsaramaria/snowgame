@@ -63,7 +63,7 @@ namespace Tmpl8
 			lives.HitDragon();
 			healthbar.ChealthBar_update(screen, ClivesCount);
 			healthbar.DhealthBar_update(screen, DlivesCount);
-			if (lives.DLivesNr() < 6)
+			if (lives.DLivesNr() < 1)
 			{
 				dragon.dead_dragon_animation(screen);
 				if(finishanimation)
@@ -74,8 +74,11 @@ namespace Tmpl8
 			}
 			if (lives.CLivesNr() < 1)
 			{
+				if (finishFinalBombAnimation)
+				{
 					gameOver = true;
 					win = false;
+				}
 			}
 		}
 	else
@@ -93,6 +96,7 @@ namespace Tmpl8
 					DlivesCount = 6;
 					alive = true;
 					Ydragon = 40;
+					leftToRight = true;
 				}
 			}
 			else
@@ -108,6 +112,7 @@ namespace Tmpl8
 					DlivesCount = 6;
 					alive = true;
 					Ydragon = 40;
+					leftToRight = true;
 				}
 			}
 

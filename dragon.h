@@ -4,13 +4,14 @@
 #include "game.h"
 #include "template.h"
 #include "bomb.h"
-//#include "lives.h"
 #include "game_character.h"
 #include <SDL.h>
 #include <cstdio> //printf
 #include <string>
 #include <Windows.h>
 #include <thread>
+//using namespace Tmpl8::Character;
+//using namespace Tmpl8::Character;
 
 
 namespace Tmpl8{
@@ -49,7 +50,7 @@ namespace Tmpl8{
 	int var = 1;
 	int var2 = 1;
 	//float previewDeltaTime = 0;
-	int flyingSpeed = 24;
+	int flyingSpeed = 17;
 	int fallindspeed = 20;
 	int Xdragon = 350;
 	int Ydragon = 40;
@@ -64,11 +65,13 @@ namespace Tmpl8{
 	bool alive = true;
 	bool playDeadDragonAnimation = true;
 	bool finishanimation = false;
+	//Dragon dragon;
 
 	class Dragon
 	{
 	public: 
-		//Character ch;
+		//Lives lives;
+		Character ch;
 		Bomb bomb;
 		
 		void animate_dragon(Surface* screen, float deltaTime)
@@ -116,7 +119,14 @@ namespace Tmpl8{
 					initXBombPosition = randomN < 110 || randomN>600 ? 140 : randomN;
 				}
 				if (isThrown) {
-					bomb.throw_bomb(initXBombPosition, currentYBombPosition, screen);
+					if (checkHitCharacterDrClass())
+					{
+						bomb.explode_bomb(initXBombPosition, currentYBombPosition, screen);
+					}
+					else
+					{
+						bomb.throw_bomb(initXBombPosition, currentYBombPosition, screen);
+					}
 					currentYBombPosition++;
 					if (currentYBombPosition == initYBombPosition + 2) {
 						bombCount++;
@@ -125,6 +135,19 @@ namespace Tmpl8{
 			}
 		}
 		
+		bool checkHitCharacterDrClass() {
+			if (getYBombPosition() > ch.getYCharactPosition() + 10
+				&& getXBombPosition() > ch.getXCharactPosition() - 60 + 10
+				&& getXBombPosition() < ch.getXCharactPosition() + 87 - 10)
+			{
+				//characterWasHit = true;
+				return true;
+			}
+			else {
+				return false;
+			}
+
+		}
 
 		void dead_dragon_animation(Surface* screen)
 		{

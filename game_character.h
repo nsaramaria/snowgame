@@ -4,6 +4,7 @@
 #include "game.h"
 #include "template.h"
 #include "snowball.h"
+
 #include <SDL.h>
 #include <cstdio> //printf
 #include <string>

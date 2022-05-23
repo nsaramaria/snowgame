@@ -3,7 +3,6 @@
 #include "surface.h"
 #include "game.h"
 #include "template.h"
-#include "bomb.h"
 #include "game_character.h"
 #include <SDL.h>
 #include <cstdio> //printf
