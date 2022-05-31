@@ -4,7 +4,6 @@
 #include "game.h"
 #include "template.h"
 #include "snowball.h"
-
 #include <SDL.h>
 #include <cstdio> //printf
 #include <string>
@@ -13,21 +12,19 @@
 
 
 namespace Tmpl8 {
-	class Surface;
-	static Sprite CharacterB(new Surface("0_Citizen_Walk_000.png"), 1);//character from back
-	static Sprite CharacterL(new Surface("0_Citizen_Walk_000S.png"), 1);//character from left side
-	static Sprite CharacterR(new Surface("0_Citizen_Walk_000D.png"), 1);//character from right side
+	//class Surface;  class Sprite;
+	static Sprite characterB(new Surface("0_Citizen_Walk_000.png"), 1);//character from back
+	static Sprite characterL(new Surface("0_Citizen_Walk_000S.png"), 1);//character from left side
+	static Sprite characterR(new Surface("0_Citizen_Walk_000D.png"), 1);//character from right side
 
-
-    class Sprite;
-
-	int XCharacter = 350;
-	int YCharacter = 368;
-	int initYBallPosition = YCharacter - 60;
+	int xCharacter = 350;
+	int yCharacter = 368;
+	int initYBallPosition = yCharacter - 60;
 	int currentYBallPosition = initYBallPosition;
 	bool ballIsThrown = false ; 
-	const int ballsMaxNumber = 2;
-	int countBalls=0;
+	//const int ballsMaxNumber = 2;
+	//int countBalls=0;
+
 	class Character
 	{  
 	public:
@@ -38,22 +35,20 @@ namespace Tmpl8 {
 
 			if (GetAsyncKeyState(VK_LEFT))
 			{
-				//decrement x
-				XCharacter -= 2;
-				CharacterL.DrawScaled(XCharacter, YCharacter, 87, 87, screen);
+				xCharacter -= 2;
+				characterL.DrawScaled(xCharacter, yCharacter, 87, 87, screen);
 			
 			}
 			else
 			{
 				if (GetAsyncKeyState(VK_RIGHT))
 				{
-					//increment x
-					XCharacter += 2;
-					CharacterR.DrawScaled(XCharacter, YCharacter, 87, 87, screen);
+					xCharacter += 2;
+					characterR.DrawScaled(xCharacter, yCharacter, 87, 87, screen);
 				}
 				else
 				{
-					CharacterB.DrawScaled(XCharacter, YCharacter, 87, 87, screen);
+					characterB.DrawScaled(xCharacter, yCharacter, 87, 87, screen);
 				}
 			}
 			if(GetAsyncKeyState(VK_SPACE))
@@ -61,14 +56,14 @@ namespace Tmpl8 {
 				ballIsThrown = true;
 			}
 			
-
 			if (ballIsThrown) 
 			{
-				snowball.throw_ball(XCharacter, currentYBallPosition, screen);
+				snowball.throwBall(xCharacter, currentYBallPosition, screen);
 			}
 			 resetThrow();
 
 		}
+		//reset the position of the snowball
 		void resetThrow() 
 		{
 			if (snowball.getYPosition()==21) {
@@ -77,12 +72,13 @@ namespace Tmpl8 {
 		}
 		int getXCharactPosition()
 		{
-			return XCharacter;
+			return xCharacter;
 		}
 		int getYCharactPosition()
 		{
-			return YCharacter;
+			return yCharacter;
 		}
+	
 
 	};//class Character
 };

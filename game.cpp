@@ -3,7 +3,7 @@
 #include "template.h"
 #include "backround.h"
 #include "dragon.h"
-#include "game_character.h"
+#include "GameCharacter.h"
 #include "lives.h"
 #include <cstdio> //printf
 #include <SDL.h>
@@ -32,7 +32,7 @@ namespace Tmpl8
 	void Game::Init()
 	{
 		Snow snow;
-		snow.initialize_flakes();
+		snow.initializeFlakes();
 		
 	}
 
@@ -50,20 +50,23 @@ namespace Tmpl8
 		screen->Clear(0x0074bd);
 
 		if (!gameOver)
-		{
-			snow.draw_flakes(screen, deltaTime);
-			snow.movement_flakes();
-			display.display_ground(screen);
-			display.display_woodsign(screen);
-			display.display_ch_bar(screen);
-			display.display_dr_bar(screen);
+		{   //display map
+			display.displayGround(screen);
+			display.displayWoodsign(screen);
+			display.displayChBar(screen);
+			display.displayDrBar(screen);
+			//snowing effect
+			snow.drawFlakes(screen, deltaTime);
+			snow.movementFlakes();
+			
 			character.Movement(screen);
 			dragon.animate_dragon(screen, deltaTime);
-			lives.HitCharacter();
-			lives.HitDragon();
-			healthbar.ChealthBar_update(screen, ClivesCount);
-			healthbar.DhealthBar_update(screen, DlivesCount);
-			if (lives.DLivesNr() < 1)
+			lives.hitCharacter();
+			lives.hitDragon();
+			healthbar.cHealthBarUpdate(screen, cLivesCount);
+			healthbar.dHealthBarUpdate(screen, dLivesCount);
+
+			if (lives.dLivesNr() < 1)
 			{
 				dragon.dead_dragon_animation(screen);
 				if(finishanimation)
@@ -72,7 +75,7 @@ namespace Tmpl8
 					win = true;
 				}
 			}
-			if (lives.CLivesNr() < 1)
+			if (lives.cLivesNr() < 1)
 			{
 				if (finishFinalBombAnimation)
 				{
@@ -87,13 +90,13 @@ namespace Tmpl8
 			{
 				WinGame.DrawScaled(180, 100, 360, 170, screen);
 				screen->Print("PRESS ENTER TO PLAY AGAIN", 300, 300, 0xffffff);
-				snow.draw_flakes(screen, deltaTime);
-				snow.movement_flakes();
+				snow.drawFlakes(screen, deltaTime);
+				snow.movementFlakes();
 				if (GetAsyncKeyState(VK_RETURN))
 				{   //game reset
 					gameOver = false;
-					ClivesCount = 3;
-					DlivesCount = 6;
+					cLivesCount = 3;
+					dLivesCount = 6;
 					alive = true;
 					Ydragon = 40;
 					leftToRight = true;
@@ -103,13 +106,13 @@ namespace Tmpl8
 			{   
 				GameOver.DrawScaled(180, 100, 440, 170, screen);
 				screen->Print("PRESS ENTER TO PLAY AGAIN", 300, 330, 0xffffff);
-				snow.draw_flakes(screen, deltaTime);
-				snow.movement_flakes();
+				snow.drawFlakes(screen, deltaTime);
+				snow.movementFlakes();
 				if (GetAsyncKeyState(VK_RETURN))
 				{   //game reset
 					gameOver = false;
-					ClivesCount = 3;
-					DlivesCount = 6;
+					cLivesCount = 3;
+					dLivesCount = 6;
 					alive = true;
 					Ydragon = 40;
 					leftToRight = true;

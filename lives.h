@@ -2,7 +2,6 @@
 #include "game.h"
 #include "surface.h"
 #include "template.h"
-//#include "game_character.h"
 #include "dragon.h"
 #include <cstdio> //printf
 #include <SDL.h>
@@ -11,12 +10,15 @@
 #include <ctime>
 
 namespace Tmpl8 {
-	int ClivesCount = 3;
-	int DlivesCount = 6;
+	int cLivesCount = 3;
+	int dLivesCount = 6;
 	bool hasLivesUpdated = false;
 	int bombIndex = -1;
 	int snowballIndex = -1;
-	
+
+    int colorRange[6];
+	 
+
 	class Lives
 	{
 	public:
@@ -24,30 +26,30 @@ namespace Tmpl8 {
 		Dragon dragon;
 		Character ch;
 		Dragon dragonBomb;
-		
+
 		//verify if the Character was hit by the bomb and update his lives if so
-		void HitCharacter()  
+		void hitCharacter()
 		{
 			if (checkHitCharacter())
-			{ 
+			{
 				updateCLives();
 			}
 		}
 		//creat a function that decreases life only by one per hit
 		void updateCLives() {
-			if (dragonBomb.getBombCount()> bombIndex) 
+			if (dragonBomb.getBombCount() > bombIndex)
 			{
-				ClivesCount--;//Character lives 
+				cLivesCount--;//Character lives 
 				//bombIndex variable restrict lives from decreasing more than once per hit
-				bombIndex = dragonBomb.getBombCount(); 
-			}                                         
+				bombIndex = dragonBomb.getBombCount();
+			}
 		}
-		int CLivesNr()
+		int cLivesNr()
 		{
-			return ClivesCount;
+			return cLivesCount;
 		}
 		bool checkHitCharacter() { //check if the bomb hit the Character
-			if (dragonBomb.getYBombPosition() > ch.getYCharactPosition() +10
+			if (dragonBomb.getYBombPosition() > ch.getYCharactPosition() + 10
 				&& dragonBomb.getXBombPosition() > ch.getXCharactPosition() - 50
 				&& dragonBomb.getXBombPosition() < ch.getXCharactPosition() + 77)
 			{
@@ -59,7 +61,7 @@ namespace Tmpl8 {
 		}
 
 		//create functions for character lives
-		void HitDragon()
+		void hitDragon()
 		{
 			if (checkHitDragon())
 			{
@@ -69,20 +71,20 @@ namespace Tmpl8 {
 		}
 		void updateDLives() {
 			if (snowball.getSnowballCount() > snowballIndex) {
-				DlivesCount--;
+				dLivesCount--;
 				snowballIndex = snowball.getSnowballCount();
 			}
 		}
-		int DLivesNr()
+		int dLivesNr()
 		{
-			return DlivesCount;
+			return dLivesCount;
 		}
 		bool checkHitDragon() {
 			if (!ballIsThrown) {
 				return false;
 			}
-			if ( (snowball.getYPosition()< dragon.getYdragonPosition() +87 -30)
-				&& (snowball.getXPosition() >= dragon.getXdragonPosition() - 50 + 30 )
+			if ((snowball.getYPosition() < dragon.getYdragonPosition() + 87 - 30)
+				&& (snowball.getXPosition() >= dragon.getXdragonPosition() - 50 + 30)
 				&& (snowball.getXPosition() <= dragon.getXdragonPosition() + 87 - 35))
 			{
 
@@ -91,56 +93,37 @@ namespace Tmpl8 {
 			else {
 				return false;
 			}
-
 		}
-
-
 	};
+
 
 	class HealthBar
 	{
+		//   functions that update the dragon and character health bar 
+	    //   depending on their lives number
 	public:
-		void ChealthBar_update(Surface*screen,int ClivesCount)
+		void cHealthBarUpdate(Surface*screen,int cLivesCount)
 		{
-			if (ClivesCount == 3)
-			{
-				screen->Bar(620, 10, 790, 30, 0x00ff00);
-			}
-			if (ClivesCount == 2)
-			{
-				screen->Bar(620, 10, 710, 30, 0xff7702);
-			}
-			if (ClivesCount <= 1)
-			{
-				screen->Bar(620, 10, 650, 30, 0xe02e00);
-			}
+			colorRange[0] = 0;
+			colorRange[1] = 0xe02e00;
+			colorRange[2] = 0xff7702;
+			colorRange[3] = 0x00ff00;
+		
+			screen->Bar(620, 10, 620 + cLivesCount * 55, 30, colorRange[cLivesCount]);
+
 		}
-		void DhealthBar_update(Surface* screen, int DlivesCount)
+		void dHealthBarUpdate(Surface* screen, int dLivesCount)
 		{
-			if (DlivesCount == 6)
-			{
-				screen->Bar(40, 10, 180, 30, 0x00006a); //  790-620=170
-			}
-			if (DlivesCount == 5)
-			{
-				screen->Bar(40, 10, 157, 30, 0x48006a);
-			}
-			if (DlivesCount == 4)
-			{
-				screen->Bar(40, 10, 134, 30, 0x8b006a);
-			}
-			if (DlivesCount == 3)
-			{
-				screen->Bar(40, 10, 111, 30, 0xb60060);
-			}
-			if (DlivesCount == 2)
-			{
-				screen->Bar(40, 10, 88, 30, 0xe60657);
-			}
-			if (DlivesCount <= 1)
-			{
-				screen->Bar(40, 10, 65, 30, 0xff0b1a);
-			}
+			colorRange[0] = 0;
+			colorRange[1] = 0xff0b1a;
+			colorRange[2] = 0xe60657;
+			colorRange[3] = 0xb60060;
+			colorRange[4] = 0x8b006a;
+			colorRange[5] = 0x48006a;
+			colorRange[6] = 0x00006a;
+
+			screen->Bar(40, 10, 65+ dLivesCount*20, 30, colorRange[dLivesCount]);
+
 		}
 	};
 

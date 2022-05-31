@@ -3,7 +3,7 @@
 #include "surface.h"
 #include "game.h"
 #include "template.h"
-#include "game_character.h"
+#include "GameCharacter.h"
 #include <SDL.h>
 #include <cstdio> //printf
 #include <string>
@@ -11,43 +11,43 @@
 #include <thread>
 
 namespace Tmpl8 {
-	class Surface;
+	//class Surface;
     Sprite ball(new Surface("snowball.png"), 1);
-	int YBall = 300;
-	int XBall = -1;
+	int yBall = 300;
+	int xBall = -1;
 	int SnowballCount = -1;
 
 	class Snowball {
 		
 	public:
-		void throw_ball( int XCharacter,int YCharacter, Surface* screen)
+		void throwBall( int XCharacter,int YCharacter, Surface* screen)
 		{
-			if (XBall<0) {
+			if (xBall<0) {
 				int save = XCharacter;
-				XBall = save;
+				xBall = save;
 			}
-			if (YBall>20) 
+			if (yBall>20) 
 			{
-				ball.DrawScaled(XBall, YBall, 50, 50, screen);
-				YBall--;
-				if (YBall == 200)
+				ball.DrawScaled(xBall, yBall, 50, 50, screen);
+				yBall--;
+				if (yBall == 200)
 				{
 					SnowballCount++;
 				}
 			}
-			else
-			{
-				YBall = 300;
- 				XBall = -1;
+			else //reset the coordinates when the snowball approaches the top
+			{   yBall = 300;
+			 //initialize xBall with a negative value so it gets the x position of the character in the first IF condition
+ 				xBall = -1; 
 			}
 		}
 
 	
 		int getXPosition() {
-			return XBall;
+			return xBall;
 		}
 		int getYPosition() {
-			return YBall;
+			return yBall;
 		}
 		int getSnowballCount()
 		{
