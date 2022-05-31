@@ -230,8 +230,9 @@
     <ClInclude Include="backround.h" />
     <ClInclude Include="bomb.h" />
     <ClInclude Include="dragon.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="game.h" />
-    <ClInclude Include="game_character.h" />
+    <ClInclude Include="GameCharacter.h" />
     <ClInclude Include="lives.h" />
     <ClInclude Include="snowball.h" />
     <ClInclude Include="surface.h" />
@@ -239,43 +240,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="_readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="0_Citizen_Communication_000.png" />
-    <Image Include="0_Citizen_Walk_000D.png" />
-    <Image Include="bomb1.png" />
-    <Image Include="bombRev1.png" />
-    <Image Include="deadDragon1.png" />
-    <Image Include="deadDragon2.png" />
-    <Image Include="deadDragon3.png" />
-    <Image Include="deadDragon4.png" />
-    <Image Include="deadDragon6.png" />
-    <Image Include="deadDragon7.png" />
-    <Image Include="deadDragon8.png" />
-    <Image Include="deadDragonRev1.png" />
-    <Image Include="deadDragonRev2.png" />
-    <Image Include="deadDragonRev3.png" />
-    <Image Include="deadDragonRev4.png" />
-    <Image Include="deadDragonRev6.png" />
-    <Image Include="deadDragonRev7.png" />
-    <Image Include="deadDragonRev8.png" />
-    <Image Include="dragon1.png" />
-    <Image Include="dragon2.png" />
-    <Image Include="dragon3.png" />
-    <Image Include="dragonRev1.png" />
-    <Image Include="dragonRev2.png" />
-    <Image Include="dragonRev3.png" />
-    <Image Include="snow game assets\4 direction\Citizen\PNG\Back\PNG Sequences\Walk\0_Citizen_Walk_000.png" />
-    <Image Include="snow game assets\4 direction\Citizen\PNG\Side\PNG Sequences\Walk\0_Citizen_Walk_000S.png" />
-    <Image Include="snow game assets\keyframes\snowball_05.png" />
-    <Image Include="snow game assets\png\Object\Sign_1.png" />
-    <Image Include="snow game assets\png\Tiles\1.png" />
-    <Image Include="snow game assets\png\Tiles\14.png" />
-    <Image Include="snow game assets\png\Tiles\15.png" />
-    <Image Include="snow game assets\png\Tiles\16.png" />
-    <Image Include="snow game assets\png\Tiles\2.png" />
-    <Image Include="snow game assets\png\Tiles\3.png" />
-    <Image Include="snowball.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

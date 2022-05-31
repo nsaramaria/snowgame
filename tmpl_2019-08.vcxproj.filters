@@ -18,133 +18,21 @@
       <Filter>template code</Filter>
     </ClInclude>
     <ClInclude Include="backround.h" />
-    <ClInclude Include="game_character.h" />
+    <ClInclude Include="GameCharacter.h" />
     <ClInclude Include="dragon.h" />
     <ClInclude Include="bomb.h" />
     <ClInclude Include="snowball.h" />
     <ClInclude Include="lives.h" />
+    <ClInclude Include="Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">
       <UniqueIdentifier>{bf32dd6e-4be7-4889-8ac6-49e7ee163c40}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="game assets">
-      <UniqueIdentifier>{8e9a9953-fbc4-4bbf-ba55-19d14f79be0b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="character animations">
-      <UniqueIdentifier>{e8340345-d7d4-4d0d-ac77-6bec81817ab8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="_readme.txt">
       <Filter>template code</Filter>
     </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="snow game assets\png\Tiles\1.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="snow game assets\png\Tiles\2.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="snow game assets\png\Tiles\3.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="snow game assets\png\Tiles\14.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="snow game assets\png\Tiles\15.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="snow game assets\png\Tiles\16.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="snow game assets\keyframes\snowball_05.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="snow game assets\4 direction\Citizen\PNG\Back\PNG Sequences\Walk\0_Citizen_Walk_000.png">
-      <Filter>character animations</Filter>
-    </Image>
-    <Image Include="snow game assets\4 direction\Citizen\PNG\Side\PNG Sequences\Walk\0_Citizen_Walk_000S.png">
-      <Filter>character animations</Filter>
-    </Image>
-    <Image Include="0_Citizen_Walk_000D.png">
-      <Filter>character animations</Filter>
-    </Image>
-    <Image Include="snow game assets\png\Object\Sign_1.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="dragon1.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="dragon2.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="dragon3.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="dragonRev1.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="dragonRev2.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="dragonRev3.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="bomb1.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="snowball.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="0_Citizen_Communication_000.png">
-      <Filter>character animations</Filter>
-    </Image>
-    <Image Include="deadDragon1.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="deadDragon2.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="deadDragon3.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="deadDragon4.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="deadDragon6.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="deadDragon7.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="deadDragon8.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="bombRev1.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="deadDragonRev1.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="deadDragonRev2.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="deadDragonRev3.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="deadDragonRev4.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="deadDragonRev6.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="deadDragonRev7.png">
-      <Filter>game assets</Filter>
-    </Image>
-    <Image Include="deadDragonRev8.png">
-      <Filter>game assets</Filter>
-    </Image>
   </ItemGroup>
 </Project>
