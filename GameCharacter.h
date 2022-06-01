@@ -6,38 +6,31 @@
 #include "snowball.h"
 #include <SDL.h>
 #include <cstdio> //printf
-#include <string>
-#include <Windows.h>
-#include <vcruntime.h>
 
 
 namespace Tmpl8 {
-	//class Surface;  class Sprite;
-	static Sprite characterB(new Surface("0_Citizen_Walk_000.png"), 1);//character from back
-	static Sprite characterL(new Surface("0_Citizen_Walk_000S.png"), 1);//character from left side
-	static Sprite characterR(new Surface("0_Citizen_Walk_000D.png"), 1);//character from right side
+	
+	static Sprite characterB(new Surface("assets/citizenWalkB.png"), 1);//character from back
+	static Sprite characterR(new Surface("assets/citizenWalkR.png"), 1);//character from right side
+	static Sprite characterL(new Surface("assets/citizenWalkL.png"), 1);//character from left side
 
 	int xCharacter = 350;
 	int yCharacter = 368;
 	int initYBallPosition = yCharacter - 60;
 	int currentYBallPosition = initYBallPosition;
 	bool ballIsThrown = false ; 
-	//const int ballsMaxNumber = 2;
-	//int countBalls=0;
 
 	class Character
 	{  
 	public:
 		Snowball snowball;
 		
-		void Movement(Surface*screen)
+		void Movement(Surface* screen)
 		{
-
 			if (GetAsyncKeyState(VK_LEFT))
 			{
 				xCharacter -= 2;
 				characterL.DrawScaled(xCharacter, yCharacter, 87, 87, screen);
-			
 			}
 			else
 			{
@@ -51,34 +44,29 @@ namespace Tmpl8 {
 					characterB.DrawScaled(xCharacter, yCharacter, 87, 87, screen);
 				}
 			}
-			if(GetAsyncKeyState(VK_SPACE))
-			{ 
+			if (GetAsyncKeyState(VK_SPACE))
+			{   //throw the ball when hit SPACE
 				ballIsThrown = true;
 			}
-			
-			if (ballIsThrown) 
+			if (ballIsThrown)
 			{
-				snowball.throwBall(xCharacter, currentYBallPosition, screen);
+				snowball.ThrowBall(xCharacter, currentYBallPosition, screen);
 			}
-			 resetThrow();
-
+			ResetThrow();
 		}
-		//reset the position of the snowball
-		void resetThrow() 
+		void ResetThrow() 
 		{
-			if (snowball.getYPosition()==21) {
+			if (snowball.GetYPosition()==20) {
 				ballIsThrown = false;
 			}
 		}
-		int getXCharactPosition()
+		int GetXCharactPosition()
 		{
 			return xCharacter;
 		}
-		int getYCharactPosition()
+		int GetYCharactPosition()
 		{
 			return yCharacter;
 		}
-	
-
-	};//class Character
+	};
 };

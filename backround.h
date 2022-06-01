@@ -6,8 +6,7 @@
 #include <SDL.h>
 #include <cstdio> //printf
 #include <string>
-#include <Windows.h>
-#include <thread>
+
 
 const int totalFlakes = 200;
 const int layer = 3;
@@ -20,19 +19,16 @@ float fScreenWidth = 800.0f;
 float fScreenHeight = 512.0f;
 
 namespace Tmpl8 {
-	//class Surface;
-	static Sprite snowBlockInit(new Surface("1.png"), 1);
-	static Sprite snowBlockMid(new Surface("2.png"), 1);
-	static Sprite snowBlockFin(new Surface("3.png"), 1);
-
-	static Sprite snowBlockUpInit(new Surface("14.png"), 1);
-	static Sprite snowBlockUpMid(new Surface("15.png"), 1);
-	static Sprite snowBlockUpFin(new Surface("16.png"), 1);
-
-	static Sprite woodSign(new Surface("Sign_1.png"), 1);
-
-	static Sprite chBar(new Surface("0_Citizen_Communication_000.png"), 1);
-	static Sprite drBar(new Surface("dragon2.png"), 1);
+	
+	static Sprite snowBlockInit(new Surface("assets/block1.png"), 1);
+	static Sprite snowBlockMid(new Surface("assets/block2.png"), 1);
+	static Sprite snowBlockFin(new Surface("assets/block3.png"), 1);
+	static Sprite snowBlockUpInit(new Surface("assets/block14.png"), 1);
+	static Sprite snowBlockUpMid(new Surface("assets/block15.png"), 1);
+	static Sprite snowBlockUpFin(new Surface("assets/block16.png"), 1);
+	static Sprite woodSign(new Surface("assets/woodSign.png"), 1);
+	static Sprite chBar(new Surface("assets/citizen.png"), 1);
+	static Sprite drBar(new Surface("assets/dragon2.png"), 1);
 
 	int xInstructions = 6;
 	int yInstructions = 370;
@@ -40,7 +36,7 @@ namespace Tmpl8 {
 	class Snow
 	{
 	public:
-		void initializeFlakes()
+		void InitializeFlakes()
 		{
 			for (int i = 0; i < totalFlakes; i++)
 			{
@@ -49,7 +45,7 @@ namespace Tmpl8 {
 				flakesLayer[i] = int(Rand(layer));
 			}
 		}
-		void drawFlakes(Surface* screen, float deltaTime)
+		void DrawFlakes(Surface* screen, float deltaTime)
 		{
 			//making 3 different snowfleaks types with different form , color and speed
 			for (int i = 0; i < totalFlakes; i++)
@@ -95,7 +91,7 @@ namespace Tmpl8 {
 				}
 			}
 		}
-		void movementFlakes()
+		void MovementFlakes()
 		{
 			for ( int i = 0; i < totalFlakes; i++)
 			{
@@ -115,7 +111,7 @@ namespace Tmpl8 {
 	{
 	public:
 
-		void displayGround(Surface* screen)
+		void DisplayGround(Surface* screen)
 		{
 			//ground blocks placed on the buttom of the screen
 			snowBlockInit.DrawScaled(3, 442, 70, 70, screen);
@@ -137,9 +133,10 @@ namespace Tmpl8 {
 			snowBlockUpFin.DrawScaled(750, 300, 40, 40, screen);
 		}
 
-		void displayWoodsign(Surface* screen)
+		void DisplayWoodsign(Surface* screen)
 		{
 			woodSign.DrawScaled(0, 348, 100, 100, screen);
+			//write short instructions on it
 			screen->Print("Kill the dragon", xInstructions, yInstructions, 0x492d00);
 			screen->Print("by hitting it", xInstructions, yInstructions+10, 0x492d00);
 			screen->Print("six times and", xInstructions, yInstructions+20, 0x492d00);
@@ -147,12 +144,12 @@ namespace Tmpl8 {
 			screen->Print("bombs", xInstructions, yInstructions+40, 0x492d00);
 		}
 
-		void displayChBar(Surface* screen)
+		void DisplayChBar(Surface* screen)
 		{
 			chBar.DrawScaled(580, 1, 40, 40, screen);
 		}
 
-		void displayDrBar(Surface* screen)
+		void DisplayDrBar(Surface* screen)
 		{
 			drBar.DrawScaled(-5, -2, 57, 57, screen);
 		}

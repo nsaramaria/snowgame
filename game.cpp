@@ -4,12 +4,10 @@
 #include "backround.h"
 #include "dragon.h"
 #include "GameCharacter.h"
+#include "Entity.h"
 #include "lives.h"
 #include <cstdio> //printf
-#include <SDL.h>
-#include <string>
-#include <cstdlib>
-#include <ctime>
+
 using namespace std;
 
 namespace Tmpl8
@@ -21,8 +19,8 @@ namespace Tmpl8
 	Lives lives;
 	HealthBar healthbar;
 
-	static Sprite GameOver(new Surface("gameoverTR.png"), 1);
-	static Sprite WinGame(new Surface("youwin.png"), 1);
+	static Sprite GameOver(new Surface("assets/gameoverTR.png"), 1);
+	static Sprite WinGame(new Surface("assets/youwin.png"), 1);
 	
 	bool gameOver = false;
 	bool win = true;
@@ -32,8 +30,8 @@ namespace Tmpl8
 	void Game::Init()
 	{
 		Snow snow;
-		snow.initializeFlakes();
-		
+		snow.InitializeFlakes();
+		finishanimation = false;
 	}
 
 	// Close down application
@@ -51,37 +49,33 @@ namespace Tmpl8
 
 		if (!gameOver)
 		{   //display map
-			display.displayGround(screen);
-			display.displayWoodsign(screen);
-			display.displayChBar(screen);
-			display.displayDrBar(screen);
+			display.DisplayGround(screen);
+			display.DisplayWoodsign(screen);
+			display.DisplayChBar(screen);
+			display.DisplayDrBar(screen);
 			//snowing effect
-			snow.drawFlakes(screen, deltaTime);
-			snow.movementFlakes();
-			
+			snow.DrawFlakes(screen, deltaTime);
+			snow.MovementFlakes();
 			character.Movement(screen);
-			dragon.animate_dragon(screen, deltaTime);
-			lives.hitCharacter();
-			lives.hitDragon();
-			healthbar.cHealthBarUpdate(screen, cLivesCount);
-			healthbar.dHealthBarUpdate(screen, dLivesCount);
+			dragon.AnimateDragon(screen, deltaTime);
+			lives.HitCharacter();
+			lives.HitDragon();
+			healthbar.CHealthBarUpdate(screen, cLivesCount);
+			healthbar.DHealthBarUpdate(screen, dLivesCount);
 
-			if (lives.dLivesNr() < 1)
-			{
-				dragon.dead_dragon_animation(screen);
+			if (lives.DLivesNo() < 1)
+			{   
+				dragon.DeadDragonAnimation(screen,deltaTime);
 				if(finishanimation)
 				{
 					gameOver = true;
 					win = true;
 				}
 			}
-			if (lives.cLivesNr() < 1)
+			if (lives.CLivesNo() < 1)
 			{
-				if (finishFinalBombAnimation)
-				{
 					gameOver = true;
 					win = false;
-				}
 			}
 		}
 	else
@@ -90,8 +84,8 @@ namespace Tmpl8
 			{
 				WinGame.DrawScaled(180, 100, 360, 170, screen);
 				screen->Print("PRESS ENTER TO PLAY AGAIN", 300, 300, 0xffffff);
-				snow.drawFlakes(screen, deltaTime);
-				snow.movementFlakes();
+				snow.DrawFlakes(screen, deltaTime);
+				snow.MovementFlakes();
 				if (GetAsyncKeyState(VK_RETURN))
 				{   //game reset
 					gameOver = false;
@@ -99,15 +93,17 @@ namespace Tmpl8
 					dLivesCount = 6;
 					alive = true;
 					Ydragon = 40;
+					Xdragon = 350;
 					leftToRight = true;
+					finishanimation = false;
 				}
 			}
 			else
 			{   
 				GameOver.DrawScaled(180, 100, 440, 170, screen);
 				screen->Print("PRESS ENTER TO PLAY AGAIN", 300, 330, 0xffffff);
-				snow.drawFlakes(screen, deltaTime);
-				snow.movementFlakes();
+				snow.DrawFlakes(screen, deltaTime);
+				snow.MovementFlakes();
 				if (GetAsyncKeyState(VK_RETURN))
 				{   //game reset
 					gameOver = false;
@@ -115,20 +111,11 @@ namespace Tmpl8
 					dLivesCount = 6;
 					alive = true;
 					Ydragon = 40;
+					Xdragon = 350;
 					leftToRight = true;
+					finishanimation = false;
 				}
 			}
-
 		}
 	}
-	
-
-		//theSprite.SetFrame(6);
-		//theSprite.Draw(screen, 30, 30);
-		// print something in the graphics window
-		//screen->Print("hello world", 2, 2, 0xffffff);
-		// print something to the text window
-		//printf("this goes to the console window.\n");
-		
-	
 };

@@ -17,13 +17,13 @@
     <ClInclude Include="template.h">
       <Filter>template code</Filter>
     </ClInclude>
-    <ClInclude Include="backround.h" />
     <ClInclude Include="GameCharacter.h" />
     <ClInclude Include="dragon.h" />
     <ClInclude Include="bomb.h" />
     <ClInclude Include="snowball.h" />
     <ClInclude Include="lives.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="backround.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">
