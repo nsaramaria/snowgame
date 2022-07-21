@@ -22,6 +22,14 @@ namespace Tmpl8
 			entitySprite->SetFrame((int)floorf(entityFrame));
 
 		}
+
+		/*void Animation(float first, float last, float speed, float deltaTime)
+		{
+			entityFrame += speed * deltaTime;
+			if (entityFrame >= last)  entityFrame = first;
+			entitySprite->SetFrame(entityFrame);
+
+		}*/
 		int GetEntityFrame()
 		{
 			return entityFrame;

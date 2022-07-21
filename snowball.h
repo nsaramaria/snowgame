@@ -6,9 +6,7 @@
 #include "GameCharacter.h"
 #include <SDL.h>
 #include <cstdio> //printf
-//#include <string>
-//#include <Windows.h>
-//#include <thread>
+
 
 namespace Tmpl8 {
 

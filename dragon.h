@@ -45,17 +45,16 @@ namespace Tmpl8{
 				if (leftToRight)
 				{
 					entitySprite = lToRDragon;
-					entity.Animation(0.0f, 9.0f, 0.01f, deltaTime);
-					entitySprite->Draw(screen, Xdragon, Ydragon);
 					Xdragon++;
 				}
 				else
 				{
 					entitySprite = rToLDragon;
-					entity.Animation(0.0f, 9.0f, 0.01f, deltaTime);
-					entitySprite->Draw(screen, Xdragon, Ydragon);
 					Xdragon--; 
 				}
+				entity.Animation(0.0f, 9.0f, 0.01f, deltaTime);
+				entitySprite->Draw(screen, Xdragon, Ydragon);
+
 				//switch direction when it reaches the edge of the flying area
 				if (Xdragon == ScreenWidth - 100 || Xdragon == 100) {
 					leftToRight = !leftToRight;
